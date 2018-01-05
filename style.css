@@ -1,0 +1,73 @@
+.canvas{
+    border:1px black dotted;
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    height: auto;
+}
+
+#canvas-draft{
+    background-color: transparent;
+}
+body{
+    overflow:hidden;
+    margin: 0;
+}
+#canvas-container{
+    height:720px;
+    padding: 16px;
+    margin-top: 30px;
+}  
+
+/*zoom in and out */
+
+    #navbar {
+    overflow: hidden;
+    background-color: #099;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 20px;
+    }
+    #navbar a {
+    float: left;
+    display: block;
+    color: #666;
+    text-align: center;
+    padding-right: 20px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+    #navbar a:hover {
+    background-color: #ddd;
+    color: black;
+    }
+    #navbar a.active {
+    background-color: #4CAF50;
+    color: white;
+    }
+
+    .button {
+    width: 300px;
+    height: 60px;
+    }
+
+    .zoom-in, .zoom-out {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: center;
+    background-position-y: center;
+    }
+
+    .thin-button {
+        cursor: pointer;
+        float: left;
+        position: relative;
+    }
+
+    
