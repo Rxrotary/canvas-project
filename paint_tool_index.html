@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="canvas_main.css">
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <title>Paint Tool Online</title>
+</head>
+
+<body>
+    <!-- Tool Box -->
+    <div class='toolContainer'>
+        <button class='tool_item' id='pen'>Pen</button>
+        <button class='tool_item' id='brush'>Brush</button>
+        <button class='tool_item' id='line'>Line</button>
+        <button class='tool_item' id='rect'>Rectangle</button>
+        <button class='tool_item' id='circle'>Cirlce</button>
+        <button class='tool_item' id='smooth'>Smooth</button>
+        <button class='tool_item' id='neon'>Neon</button>
+
+    </div>
+
+    <!-- Color Picker -->
+    <div class='color'>
+        <div class="color-front">
+            <label for="color-input" id="color-label" style="background-color: red"></label>
+            <input type="checkbox" id="color-input" checked></input>
+
+            <div id="color-picker">
+                <canvas id="color-block" height="150" width="150"></canvas>
+                <canvas id="color-strip" height="150" width="30"></canvas>
+            </div>
+        </div>
+        <div class="color-back">
+
+        </div>
+    </div>
+
+
+    <!-- Setting -->
+    <div class="setting">
+        <input type="range" id="size">Size
+        <input type='range' id='shadow'>Shadow
+        <input type='range' id='shadow_blur'>Blur
+    </div>
+
+
+
+
+
+    <canvas id='canvas_draft' width='800px' height='800px'></canvas>
+    <canvas id='canvas_real' width='800px' height="800px"></canvas>
+
+
+
+    <script type="text/javascript" src='canvas_common.js'></script>
+    <script type="text/javascript" src='canvas_colorPicker.js'></script>
+    <script type="text/javascript" src='canvas_pen.js'></script>
+    <script type="text/javascript" src='canvas_line.js'></script>
+    <script type="text/javascript" src='canvas_brush.js'></script>
+    <script type="text/javascript" src='canvas_smooth.js'></script>
+    <script type="text/javascript" src='canvas_neon.js'></script>
+
+
+
+
+
+    <script>
+
+
+    </script>
+</body>
+
+
+</html>
