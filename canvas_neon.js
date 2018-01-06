@@ -1,28 +1,28 @@
 class DrawNeon extends PaintFunction{
-    constructor(context,context_real){
+    constructor(contextReal,contextDraft){
         super();
-        this.context = context;
-        this.context_real = context_real;
+        this.contextDraft = contextDraft;
+        this.contextReal = contextReal;
         this.points = [];
     }
     onMouseDown(mouse,e){
-        this.context.lineWidth = 15;
-        this.context.lineJoin = this.context.lineCap = 'round';
+        this.contextDraft.lineWidth = 15;
+        this.contextDraft.lineJoin = this.contextDraft.lineCap = 'round';
         this.points.push(mouse);
-        this.context.strokeStyle="rgba(255,255,255,1)";
-        this.context.shadowBlur = 30;
-        this.context.shadowColor = '#ff0000';
+        this.contextDraft.strokeStyle="rgba(255,255,255,1)";
+        this.contextDraft.shadowBlur = 30;
+        this.contextDraft.shadowColor = '#ff0000';
     }
     onDragging(mouse,e){
         
-        this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+        this.contextDraft.clearRect(0, 0, this.contextDraft.canvas.width, this.contextDraft.canvas.height);
         this.points.push(mouse);
-        this.context.beginPath();
-        this.context.moveTo(this.points[0].x, this.points[0].y);
+        this.contextDraft.beginPath();
+        this.contextDraft.moveTo(this.points[0].x, this.points[0].y);
         for (var i = 1; i < this.points.length; i++) {
-          context.lineTo(this.points[i].x, this.points[i].y);
+          contextDraft.lineTo(this.points[i].x, this.points[i].y);
         }
-        this.context.stroke();
+        this.contextDraft.stroke();
 
     }
     onMouseMove(){
@@ -47,12 +47,12 @@ class DrawNeon extends PaintFunction{
 
 /*
 var el = document.getElementById('c');
-var context = el.getContext('2d');
+var contextDraft = el.getContext('2d');
 
-context.lineWidth = 10;
-context.lineJoin = context.lineCap = 'round';
-context.shadowBlur = 10;
-context.shadowColor = 'rgb(0, 0, 0)';
+contextDraft.lineWidth = 10;
+contextDraft.lineJoin = contextDraft.lineCap = 'round';
+contextDraft.shadowBlur = 10;
+contextDraft.shadowColor = 'rgb(0, 0, 0)';
 
 var isDrawing, points = [ ];
 
@@ -64,15 +64,15 @@ el.onmousedown = function(e) {
 el.onmousemove = function(e) {
   if (!isDrawing) return;
 
-  context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+  contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
   points.push({ x: e.clientX, y: e.clientY });
 
-  context.beginPath();
-  context.moveTo(points[0].x, points[0].y);
+  contextDraft.beginPath();
+  contextDraft.moveTo(points[0].x, points[0].y);
   for (var i = 1; i < points.length; i++) {
-    context.lineTo(points[i].x, points[i].y);
+    contextDraft.lineTo(points[i].x, points[i].y);
   }
-  context.stroke();
+  contextDraft.stroke();
 };
 
 el.onmouseup = function() {

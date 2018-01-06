@@ -1,7 +1,7 @@
 class DrawSmooth extends PaintFunction {
-  constructor(context){
+  constructor(contextDraft){
     super();
-    this.context = context;
+    this.contextDraft = contextDraft;
     this.lastPoint = {};
     this.currentPoint = {};
   }
@@ -13,8 +13,8 @@ class DrawSmooth extends PaintFunction {
   };
   onMouseDown(mouse,e){
     this.lastPoint = mouse;
-    this.context.lineJoin = 'round';
-    this.context.lineCap = 'round' ; 
+    this.contextDraft.lineJoin = 'round';
+    this.contextDraft.lineCap = 'round' ; 
     console.log('Here!');
   };
 
@@ -26,14 +26,14 @@ class DrawSmooth extends PaintFunction {
     for (var i = 0; i < dist; i += 5) {
       var x = this.lastPoint.x + (Math.sin(angle) * i);
       var y = this.lastPoint.y + (Math.cos(angle) * i);
-      var radgrad = this.context.createRadialGradient(x, y, 10, x, y, 20);  
+      var radgrad = this.contextDraft.createRadialGradient(x, y, 10, x, y, 20);  
       radgrad.addColorStop(0, '#000');
       radgrad.addColorStop(0.5, 'rgba(0,0,0,0.5');
       radgrad.addColorStop(1, 'rgba(0,0,0,0)');
       console.log(radgrad);
   
-      this.context.fillStyle = radgrad;
-      this.context.fillRect(x - 20, y - 20, size.x, size.y);
+      this.contextDraft.fillStyle = radgrad;
+      this.contextDraft.fillRect(x - 20, y - 20, size.x, size.y);
     }
     this.lastPoint = this.currentPoint;
   }

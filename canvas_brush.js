@@ -1,7 +1,7 @@
 class DrawBrush extends PaintFunction {
-    constructor(context){
+    constructor(contextDraft){
         super();
-        this.context = context;
+        this.contextDraft = contextDraft;
         this.lastPoint = {};
         this.currentPoint = {};    
     }
@@ -25,7 +25,7 @@ class DrawBrush extends PaintFunction {
         for (var i = 0; i < dist; i++) {
             var x = this.lastPoint.x + (Math.sin(angle) * i) - 25;
             var y = this.lastPoint.y + (Math.cos(angle) * i) - 25;
-            this.context.drawImage(img, x, y, size.x, size.y);
+            this.contextDraft.drawImage(img, x, y, size.x, size.y);
         }
         this.lastPoint = this.currentPoint;
     }

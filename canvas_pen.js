@@ -1,16 +1,16 @@
 class DrawPen extends PaintFunction{
-    constructor(context){
+    constructor(contextDraft){
         super();
-        this.context = context;   
+        this.contextDraft = contextDraft;   
     }
     draw(x,y){ 
-        context.lineTo(x+1,y+1);
-        context.moveTo(x+1,y+1);
-        context.stroke();
+        contextDraft.lineTo(x+1,y+1);
+        contextDraft.moveTo(x+1,y+1);
+        contextDraft.stroke();
     }
     onMouseDown(mouse,e){
-        context.beginPath();
-        context.moveTo(mouse.x, mouse.y);
+        contextDraft.beginPath();
+        contextDraft.moveTo(mouse.x, mouse.y);
         //console.log(mouse.x,mouse.y);
         this.draw(mouse.x,mouse.y);
         dragging = true;

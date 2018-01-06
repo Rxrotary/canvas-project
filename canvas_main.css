@@ -7,14 +7,14 @@
     background: #888888;
     z-index: 20;
 }
-#canvas_real{
+#canvasReal{
     position: absolute;
     top: 0;
     left:20vw;
     border: solid #000;
     z-index: 11;
 }
-#canvas_draft{
+#canvasDraft{
     position: absolute;
     top: 0;
     left:20vw;
