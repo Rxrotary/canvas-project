@@ -45,14 +45,3 @@ class DrawBrush extends PaintFunction {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
