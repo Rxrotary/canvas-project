@@ -14,18 +14,26 @@ class DrawingCircle extends PaintFunction{
     }
 
     onDragging(coord,event){
-               this.contextDraft.fillStyle = "#f44";
+        this.contextDraft.fillStyle = "#f44";
         this.contextDraft.beginPath();
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-        this.contextDraft.arc(this.origX,this.origY, r, 0, Math.PI*2, true);
+        this.contextDraft.moveTo(this.origX,this.origY);
+        this.contextDraft.stroke();
+        this.contextDraft.moveTo(this.origX,this.origY);
+        this.contextDraft.stroke();
+        this.contextDraft.closePath();
         this.contextDraft.stroke();
     }
 
     onMouseMove(){}
     onMouseUp(coord){
                 this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-        this.contextReal.arc(this.origX,this.origY, r, 0, Math.PI*2, true);
-        this.contextReal.stroke();
+                this.contextReal.moveTo(this.origX,this.origY);
+                this.contextReal.stroke();
+                this.contextReal.moveTo(this.origX,this.origY);
+                this.contextReal.stroke();
+                this.contextReal.closePath();
+                this.contextReal.stroke();
     }
     onMouseLeave(){}
     onMouseEnter(){}

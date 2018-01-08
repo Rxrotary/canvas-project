@@ -21,8 +21,8 @@
         <span class="btn btn-primary fa fa-square" id="drawing-rectangle">Drawing Rectangle</span>
         <span class="btn btn-info fa fa-paint-brush" id="drawing-line">Drawing Line</span>
         <span class="btn btn-info fa fa-circle" id="drawing-circle">Drawing Circle</span>
-        <span class="btn btn-info fa fa-triangle" id="drawing-triangle">Drawing Triangle</span>
-        <span class="btn btn-info fa fa-clear" id="clear-all">Clear All</span>
+        <span class="btn btn-danger fa fa-clear" id="clear-all">Clear All</span>
+        <span class="btn btn-warning fa fa-save" id="save">Save</span>
     </div>
     <div id="navbar">
         <button type="button" onclick="zoomin()"> Zoom In</button>
@@ -40,8 +40,9 @@
     <script type='text/javascript' src="drawing-line.js"></script>
     <script type='text/javascript' src="drawing-rectangle.js"></script>
     <script type='text/javascript' src="drawing-circle.js"></script>
-    <script type='text/javascript' src="drawing-triangle.js"></script>
+    <script type='text/javascript' src="save.js"></script>
     <script type='text/javascript' src="clear-all.js"></script>
+
 
     
     <script type='text/javascript'>
@@ -54,11 +55,11 @@
         $('#drawing-circle').click(() => {
             currentFunction = new DrawingCircle(contextReal, contextDraft);
         });
-        $('#drawing-triangle').click(() => {
-            currentFunction = new DrawingTriangle(contextReal, contextDraft);
-        });
-        $('#clear-all').click(() => {
+         $('#clear-all').click(() => {
             clearAll();
+        });
+        $('#save').click(() => {
+            exportCanvasAsPNG();
         });
     </script>
 

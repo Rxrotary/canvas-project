@@ -63,6 +63,10 @@ $('#rect').click(function(){
      currentFunction = new DrawingRectangle(contextReal,contextDraft);
      console.log(currentFunction);
 });
+$('#circle').click(function(){
+    currentFunction = new DrawingCircle(contextReal,contextDraft);
+    console.log(currentFunction);
+});
 $('#line').click(function(){
     currentFunction = new DrawLine;
 });
@@ -70,7 +74,9 @@ $('#neon').click(function(){
     currentFunction = new DrawNeon(contextReal,contextDraft);
     console.log(currentFunction);
 });
-
+$('#clear').click(() => {
+    clearAll();
+});
 
 
 
@@ -126,6 +132,5 @@ $('#canvasReal').mouseenter(function(e){
     }; 
     currentFunction.onMouseEnter(mouse,e);
 });
-
 
 

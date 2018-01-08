@@ -1,0 +1,84 @@
+.toolContainer{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 20vw;
+    height: 60vh;
+    background: #888888;
+    z-index: 20;
+}
+#canvasReal{
+    position: absolute;
+    top: 0;
+    left:20vw;
+    border: solid #000;
+    z-index: 11;
+}
+#canvasDraft{
+    position: absolute;
+    top: 0;
+    left:20vw;
+    border: solid #ff0000;
+    background: transparent;
+    z-index: 10;
+}
+.setting{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20vw;
+    height: 20vh;
+    background: #bbbbbb;
+
+
+}
+
+
+/* Color Picker */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e6e6e6;
+}
+h2 {
+  background-color: #dbdbdb;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-family: 'Open Sans';
+}
+#color-input {
+  display: none;
+}
+#color-label {
+  margin-left: 15px;
+  position: absolute;
+  height: 30px;
+  width: 50px;
+} 
+#color-input:checked ~ #color-picker {
+  opacity: 1;
+}
+#color-picker {
+  position: absolute;
+  left: 70px; 
+  background-color: white;
+  height: 160px;
+  width: 200px;
+  border: solid 1px #ccc;
+  opacity: 0;
+  padding: 5px;
+}
+canvas:hover {
+  cursor: crosshair;
+}
+.color{
+  position:  absolute;
+  bottom: 20vh;
+  left: 0;
+  background: #999999;
+  height: 20vh;
+  width: 20vw;
+  z-index: 21;
+}
