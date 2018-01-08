@@ -128,4 +128,14 @@ $('#canvasReal').mouseenter(function(e){
 });
 
 
+function reset(){
+    size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
+    color = {primary: '#000', secondary: '#fff'};
+    shadow = {color: '#000', blur:'0'};  
+    contextDraft.lineJoin = contextDraft.lineCap = 'round';
+    contextDraft.shadowBlur = shadow.blur;
+    contextDraft.shadowColor = shadow.color;
+    contextDraft.fillStyle = 
+}
+
 
