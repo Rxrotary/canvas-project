@@ -5,8 +5,14 @@ let contextReal = canvasReal.getContext('2d');
 let currentFunction;
 let dragging = false;
 let size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
+let color = {primary: '#000', secondary: '#fff'};
+let shadow = {color: '#000', blur:'0'};
 
 
+//Color setting 
+$('#color-picker').click(function(){
+   color.primary = $('#color-label').css('background-color');
+})
 
 
 
@@ -77,6 +83,7 @@ $('#canvasReal').mousedown(function(e){
     };                                     //I try keep using 'object' to store data, make it more consist.
     size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
     //console.log(mouse.x,mouse.y);
+
     currentFunction.onMouseDown(mouse,e);
     dragging = true;
 });
@@ -88,7 +95,6 @@ $('#canvasReal').mousemove(function(e){
     
     if (dragging){
      currentFunction.onDragging(mouse,e);
-     console.log(dragging);
     }else{currentFunction.onMouseMove(mouse,e);}
 });
 
@@ -100,6 +106,7 @@ $('#canvasReal').mouseup(function(e){
     };
     currentFunction.onMouseUp(mouse,e);
     contextReal.drawImage(canvasDraft,0,0);
+    contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
 });
 
 $('#canvasReal').mouseleave(function(e){
@@ -110,6 +117,7 @@ $('#canvasReal').mouseleave(function(e){
     }; 
     currentFunction.onMouseLeave(mouse,e);
     contextReal.drawImage(canvasDraft,0,0);
+    contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
 });
 $('#canvasReal').mouseenter(function(e){
     let mouse = {

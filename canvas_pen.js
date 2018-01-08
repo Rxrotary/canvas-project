@@ -9,6 +9,8 @@ class DrawPen extends PaintFunction{
         contextDraft.stroke();
     }
     onMouseDown(mouse,e){
+        contextDraft.strokeStyle = color.primary;
+        contextDraft.lineWidth = size.x * 0.1;
         contextDraft.beginPath();
         contextDraft.moveTo(mouse.x, mouse.y);
         //console.log(mouse.x,mouse.y);

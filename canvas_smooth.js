@@ -15,7 +15,6 @@ class DrawSmooth extends PaintFunction {
     this.lastPoint = mouse;
     this.contextDraft.lineJoin = 'round';
     this.contextDraft.lineCap = 'round' ; 
-    console.log('Here!');
   };
 
   onDragging(mouse,e){

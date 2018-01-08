@@ -26,6 +26,8 @@ class DrawBrush extends PaintFunction {
             var x = this.lastPoint.x + (Math.sin(angle) * i) - 25;
             var y = this.lastPoint.y + (Math.cos(angle) * i) - 25;
             this.contextDraft.drawImage(img, x, y, size.x, size.y);
+            contextDraft.fillStyle = color.primary;
+            contextDraft.fill();
         }
         this.lastPoint = this.currentPoint;
     }

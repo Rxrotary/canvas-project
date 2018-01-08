@@ -3,7 +3,7 @@
     top:0;
     left:0;
     width: 20vw;
-    height: 60vh;
+    height: 50vh;
     background: #888888;
     z-index: 20;
 }
@@ -78,7 +78,7 @@ canvas:hover {
   bottom: 20vh;
   left: 0;
   background: #999999;
-  height: 20vh;
+  height: 30vh;
   width: 20vw;
   z-index: 21;
 }
