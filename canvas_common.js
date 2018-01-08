@@ -5,8 +5,9 @@ let contextReal = canvasReal.getContext('2d');
 let currentFunction;
 let dragging = false;
 let size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
-let color = {primary: '#000', secondary: '#fff'};
+let color = {primary: '#ff0000', secondary: '#fff'};
 let shadow = {color: '#000', blur:'0'};
+
 
 
 //Color setting 
@@ -76,29 +77,27 @@ $('#neon').click(function(){
 
 //Apply currentFunction to Canvas
 
-$('#canvasReal').mousedown(function(e){
+$('#canvasDraft').mousedown(function(e){
+    contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
     let mouse = {
         x: e.pageX - this.offsetLeft,      //Allen: object "mouse" store x-coordinate & y-coordinate of mouse event
         y: e.pageY - this.offsetTop        //instead of [mouseX,mouseY]
     };                                     //I try keep using 'object' to store data, make it more consist.
     size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
-    //console.log(mouse.x,mouse.y);
-
     currentFunction.onMouseDown(mouse,e);
     dragging = true;
 });
-$('#canvasReal').mousemove(function(e){
+$('#canvasDraft').mousemove(function(e){
     let mouse = {
         x: e.pageX - this.offsetLeft,
         y: e.pageY - this.offsetTop
-    };
-    
+    };  
     if (dragging){
      currentFunction.onDragging(mouse,e);
     }else{currentFunction.onMouseMove(mouse,e);}
 });
 
-$('#canvasReal').mouseup(function(e){
+$('#canvasDraft').mouseup(function(e){
     dragging = false;
     let mouse = {
         x: e.pageX - this.offsetLeft,
@@ -109,7 +108,7 @@ $('#canvasReal').mouseup(function(e){
     contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
 });
 
-$('#canvasReal').mouseleave(function(e){
+$('#canvasDraft').mouseleave(function(e){
     dragging = false;
     let mouse =  {
         x: e.pageX - this.offsetLeft,
@@ -119,7 +118,7 @@ $('#canvasReal').mouseleave(function(e){
     contextReal.drawImage(canvasDraft,0,0);
     contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
 });
-$('#canvasReal').mouseenter(function(e){
+$('#canvasDraft').mouseenter(function(e){
     let mouse = {
         x: e.pageX - this.offsetLeft,
         y: e.pageY - this.offsetTop
@@ -135,7 +134,10 @@ function reset(){
     contextDraft.lineJoin = contextDraft.lineCap = 'round';
     contextDraft.shadowBlur = shadow.blur;
     contextDraft.shadowColor = shadow.color;
-    contextDraft.fillStyle = 
+    contextDraft.fillStyle = color.secondary;
+    contextDraft.strokeStyle = color.primary;
+
+
 }
 
 

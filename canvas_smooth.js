@@ -25,6 +25,7 @@ class DrawSmooth extends PaintFunction {
     for (var i = 0; i < dist; i += 5) {
       var x = this.lastPoint.x + (Math.sin(angle) * i);
       var y = this.lastPoint.y + (Math.cos(angle) * i);
+      var colorData = color.primary ;
       var radgrad = this.contextDraft.createRadialGradient(x, y, 10, x, y, 20);  
       radgrad.addColorStop(0, '#000');
       radgrad.addColorStop(0.5, 'rgba(0,0,0,0.5');

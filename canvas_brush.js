@@ -12,6 +12,7 @@ class DrawBrush extends PaintFunction {
         return Math.atan2(p2.x - p1.x, p2.y - p1.y);
     };
     onMouseDown(mouse,e) {
+        contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
         this.lastPoint = mouse;
     }
     onDragging(mouse,e) {
@@ -22,12 +23,12 @@ class DrawBrush extends PaintFunction {
         var dist = this.distanceBetween(this.lastPoint,this.currentPoint);
         var angle = this.angleBetween(this.lastPoint,this.currentPoint);
 
-        for (var i = 0; i < dist; i++) {
-            var x = this.lastPoint.x + (Math.sin(angle) * i) - 25;
-            var y = this.lastPoint.y + (Math.cos(angle) * i) - 25;
+        for (var j = 0; j < dist; j++) {
+            var x = this.lastPoint.x + (Math.sin(angle) * j) - 25;
+            var y = this.lastPoint.y + (Math.cos(angle) * j) - 25;
             this.contextDraft.drawImage(img, x, y, size.x, size.y);
-            contextDraft.fillStyle = color.primary;
-            contextDraft.fill();
+            this.contextDraft.fillStyle = color.primary;
+            this.contextDraft.fill();
         }
         this.lastPoint = this.currentPoint;
     }

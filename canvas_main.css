@@ -12,7 +12,7 @@
     top: 0;
     left:20vw;
     border: solid #000;
-    z-index: 11;
+    z-index: 10;
 }
 #canvasDraft{
     position: absolute;
@@ -20,7 +20,7 @@
     left:20vw;
     border: solid #ff0000;
     background: transparent;
-    z-index: 10;
+    z-index: 11;
 }
 .setting{
     position: absolute;
