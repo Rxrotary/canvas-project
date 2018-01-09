@@ -6,7 +6,7 @@ class DrawNeon extends PaintFunction{
         this.points = [];
     }
     onMouseDown(mouse,e){
-        this.contextDraft.lineWidth = size.x;
+        this.contextDraft.lineWidth = size.x*0.5;
         this.contextDraft.lineJoin = this.contextDraft.lineCap = 'round';
         this.points.push(mouse);
         this.contextDraft.strokeStyle= '#fff';
@@ -38,4 +38,3 @@ class DrawNeon extends PaintFunction{
 
     }
 }
-
