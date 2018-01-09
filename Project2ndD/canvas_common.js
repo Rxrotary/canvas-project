@@ -59,7 +59,7 @@ $('#brush').click(function(){
 });
 $('#smooth').click(function(){
     reset();
-    currentFunction = new DrawSmooth(contextReal,contextDraft);
+    currentFunction = new DrawSmooth(contextDraft);
     console.log(currentFunction);
 });
 $('#rect').click(function(){
