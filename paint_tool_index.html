@@ -16,67 +16,84 @@
 </head>
 
 <body>
-    <!-- Tool Box -->
-    <div class='toolContainer'>
-        <button class='tool_item' id='pen'>Pen</button>
-        <button class='tool_item' id='brush'>Brush</button>
-        <button class='tool_item' id='line'>Line</button>
-        <button class='tool_item' id='rect'>Rectangle</button>
-        <button class='tool_item' id='circle'>Cirlce</button>
-        <button class='tool_item' id='smooth'>Smooth</button>
-        <button class='tool_item' id='neon'>Neon</button>
+    <div id='app'>
+        <div id="heading">
+            <h1>Awesome Paint Tool</h1>
+        </div>
+        <!-- Tool Box -->
+        <div class='toolContainer'>
+            <button class='tool_item' id='pen'>Pen</button>
+            <button class='tool_item' id='brush'>Brush</button>
+            <button class='tool_item' id='line'>Line</button>
+            <button class='tool_item' id='rect'>Rectangle</button>
+            <button class='tool_item' id='circle'>Cirlce</button>
+            <button class='tool_item' id='smooth'>Smooth</button>
+            <button class='tool_item' id='neon'>Neon</button>
+            <button class='tool_item' id='spray'>Spray</button>
+            <button class='tool_item' id='eraser'>Eraser</button>
+            <button class='tool_item' id='clear'>Clear</button>
+            <button class='tool_item' id='save'>Save</button>
+        </div>
 
-    </div>
+        <!-- Color Picker -->
+        <div class='color'>
+            <div class="color-prim">
+                <label for="color-input1" id="color-label1" style="background-color: red"></label>
+                <input type="checkbox" id="color-input1"></input>
 
-    <!-- Color Picker -->
-    <div class='color'>
-        <div class="color-prim">
-            <label for="color-input" id="color-label" style="background-color: red"></label>
-            <input type="checkbox" id="color-input" checked></input>
+                <div id="color-picker1">
+                    <canvas id="color-block1" height="150" width="150"></canvas>
+                    <canvas id="color-strip1" height="150" width="30"></canvas>
+                </div>
+            </div>
+            <div class="color-sec">
+                    <label for="color-input2" id="color-label2" style="background-color: red"></label>
+                    <input type="checkbox" id="color-input2"></input>
+    
+                    <div id="color-picker2">
+                        <canvas id="color-block2" height="150" width="150"></canvas>
+                        <canvas id="color-strip2" height="150" width="30"></canvas>
+                    </div>
 
-            <div id="color-picker">
-                <canvas id="color-block" height="150" width="150"></canvas>
-                <canvas id="color-strip" height="150" width="30"></canvas>
+
             </div>
         </div>
-        <div class="color-sec">
 
+
+        <!-- Setting -->
+        <div class="setting">
+            <input type="range" id="size">Size
         </div>
+
+
+
+
+        <div class="canvasContainer">
+            <canvas id='canvasDraft' width='700px' height='700px'></canvas>
+            <canvas id='canvasReal' width='700px' height='700px'></canvas>
+        </div>
+
+
+        <script type="text/javascript" src='canvas_common.js'></script>
+        <script type="text/javascript" src='canvas_colorPicker.js'></script>
+        <script type='text/javascript' src='canvas_colorPicker2.js'></script>
+        <script type="text/javascript" src='canvas_pen.js'></script>
+        <script type="text/javascript" src='canvas_brush.js'></script>
+        <script type="text/javascript" src='canvas_smooth.js'></script>
+        <script type="text/javascript" src='canvas_neon.js'></script>
+        <script type='text/javascript' src='convas_spray.js'></script>
+        <script type="text/javascript" src='drawing_rectangle.js'></script>
+        <script type="text/javascript" src='drawing_circle.js'></script>
+        <script type="text/javascript" src='canvas_eraser.js'></script>
+        <script type="text/javascript" src='clear_all.js'></script>
+        <script type='text/javascript' src="save.js"></script>
+
     </div>
 
 
-    <!-- Setting -->
-    <div class="setting">
-        <input type="range" id="size">Size
-        <input type='range' id='shadow'>Shadow
-        <input type='range' id='shadow_blur'>Blur
-    </div>
 
 
 
-
-
-    <canvas id='canvasDraft' width='800px' height='800px'></canvas>
-    <canvas id='canvasReal' width='800px' height="800px"></canvas>
-
-
-
-    <script type="text/javascript" src='canvas_common.js'></script>
-    <script type="text/javascript" src='canvas_colorPicker.js'></script>
-    <script type="text/javascript" src='canvas_pen.js'></script>
-    <script type="text/javascript" src='canvas_brush.js'></script>
-    <script type="text/javascript" src='canvas_smooth.js'></script>
-    <script type="text/javascript" src='canvas_neon.js'></script>
-    <script type="text/javascript" src='drawing-rectangle.js'></script>
-
-
-
-
-
-    <script>
-
-
-    </script>
 </body>
 
 

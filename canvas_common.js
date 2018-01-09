@@ -5,14 +5,14 @@ let contextReal = canvasReal.getContext('2d');
 let currentFunction;
 let dragging = false;
 let size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
-let color = {primary: '#ff0000', secondary: '#fff'};
+let color = {primary: '#ff0000', secondary: '#fff', data:{0:255,1:0,2:0,3:255}};
 let shadow = {color: '#000', blur:'0'};
 
 
 
 //Color setting 
-$('#color-picker').click(function(){
-   color.primary = $('#color-label').css('background-color');
+$('#color-picker1').click(function(){
+   color.primary = $('#color-label1').css('background-color');
 })
 
 
@@ -49,30 +49,55 @@ currentFunction = new PaintFunction;
 //call draw-functions to "currentFunction" when user click the button 
 
 $('#pen').click(function(){
+    reset();
     currentFunction = new DrawPen(contextReal,contextDraft);
     console.log(currentFunction);
 });
 $('#brush').click(function(){
+    reset();
     currentFunction = new DrawBrush(contextReal,contextDraft);
     console.log(currentFunction);
 });
 $('#smooth').click(function(){
+    reset();
     currentFunction = new DrawSmooth(contextReal,contextDraft);
     console.log(currentFunction);
 });
-$('#rect').click(function(){
-     currentFunction = new DrawingRectangle(contextReal,contextDraft);
-     console.log(currentFunction);
-});
-$('#line').click(function(){
-    currentFunction = new DrawLine;
-});
 $('#neon').click(function(){
+    reset();
     currentFunction = new DrawNeon(contextReal,contextDraft);
     console.log(currentFunction);
 });
-
-
+$('#spray').click(function(){
+    reset();
+    currentFunction = new DrawSpray(contextReal,contextDraft);
+    console.log(currentFunction);
+});
+$('#rect').click(function(){
+    reset();
+     currentFunction = new DrawingRectangle(contextReal,contextDraft);
+     console.log(currentFunction);
+});
+$('#circle').click(function(){
+    reset();
+    currentFunction = new DrawingCircle(contextReal,contextDraft);
+    console.log(currentFunction);
+});
+$('#line').click(function(){
+    reset();
+    currentFunction = new DrawLine;
+});
+$('#eraser').click(function(){
+    reset();
+    currentFunction = new Eraser(contextReal);
+    console.log(currentFunction);
+});
+$('#clear').click(() => {
+    clearAll();
+});
+$('#save').click(() => {
+    exportCanvasAsPNG();
+});
 
 
 //Apply currentFunction to Canvas
@@ -129,15 +154,14 @@ $('#canvasDraft').mouseenter(function(e){
 
 function reset(){
     size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
-    color = {primary: '#000', secondary: '#fff'};
+    color.primary = $('#color-label1').css('background-color');
+    color.secondary = $('#color-label2').css('background-color');
     shadow = {color: '#000', blur:'0'};  
     contextDraft.lineJoin = contextDraft.lineCap = 'round';
     contextDraft.shadowBlur = shadow.blur;
     contextDraft.shadowColor = shadow.color;
     contextDraft.fillStyle = color.secondary;
     contextDraft.strokeStyle = color.primary;
-
-
 }
 
 

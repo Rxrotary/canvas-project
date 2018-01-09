@@ -1,9 +1,12 @@
 class DrawBrush extends PaintFunction {
-    constructor(contextDraft){
+    constructor(contextReal,contextDraft){
         super();
         this.contextDraft = contextDraft;
+        this.contextReal = contextReal;
         this.lastPoint = {};
         this.currentPoint = {};    
+        
+  
     }
     distanceBetween(p1, p2) {
         return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
@@ -12,7 +15,6 @@ class DrawBrush extends PaintFunction {
         return Math.atan2(p2.x - p1.x, p2.y - p1.y);
     };
     onMouseDown(mouse,e) {
-        contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
         this.lastPoint = mouse;
     }
     onDragging(mouse,e) {
@@ -27,10 +29,9 @@ class DrawBrush extends PaintFunction {
             var x = this.lastPoint.x + (Math.sin(angle) * j) - 25;
             var y = this.lastPoint.y + (Math.cos(angle) * j) - 25;
             this.contextDraft.drawImage(img, x, y, size.x, size.y);
-            this.contextDraft.fillStyle = color.primary;
-            this.contextDraft.fill();
         }
         this.lastPoint = this.currentPoint;
+        
     }
     onMouseMove() {
 
