@@ -5,7 +5,7 @@ let contextReal = canvasReal.getContext('2d');
 let currentFunction;
 let dragging = false;
 let size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
-let color = {primary: '#ff0000', secondary: '#fff',current:'#ff0000', dataPrim:{0:255,1:0,2:0,3:255}, dataSec:{0:255,1:0,2:0,3:255}, currentData{0:255,1:0,2:0,3:255}};
+let color = {primary: '#ff0000', secondary: '#fff',current:'#ff0000', dataPrim:{0:255,1:0,2:0,3:255}, dataSec:{0:255,1:0,2:0,3:255}, currentData:{0:255,1:0,2:0,3:255}};
 let shadow = {color: '#000', blur:'0'};
 
 
