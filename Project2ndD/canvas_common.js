@@ -74,8 +74,15 @@ $('#neon').click(function(){
     currentFunction = new DrawNeon(contextReal,contextDraft);
     console.log(currentFunction);
 });
+$('#eraser').click(function(){
+    currentFunction = new Eraser(contextReal);
+    console.log(currentFunction);
+});
 $('#clear').click(() => {
     clearAll();
+});
+$('#save').click(() => {
+    exportCanvasAsPNG();
 });
 
 

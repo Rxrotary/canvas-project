@@ -7,15 +7,17 @@ class DrawingRectangle extends PaintFunction{
     
     onMouseDown(mouse,event){
         this.contextReal.fillStyle = color.primary;
-        this.contextReal.strokeStyle = color.secondary;
-        this.contextReal.stroke
+        this.contextReal.lineStyle = color.secondary;
+        this.contextReal.lineWidth = size.x * 0.1;
         this.orig = mouse;      //mouse = {x:   , y:   } , the coordinate of mouse event
     }
     onDragging(mouse,event){
         this.contextDraft.fillStyle = color.primary;
-        this.contextDraft.strokeStyle = color.secondary;
+        this.contextDraft.lineStyle = color.secondary;
+        this.contextReal.lineWidth = size.x * 0.1;
         this.contextDraft.clearRect(0,0,canvasReal.width,canvasReal.height);
         this.contextDraft.fillRect(this.orig.x,this.orig.y,mouse.x- this.orig.x,mouse.y - this.orig.y)
+        this.contextReal.stroke();
     }
 
     onMouseMove(){}

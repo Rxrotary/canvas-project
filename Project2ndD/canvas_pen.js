@@ -6,11 +6,12 @@ class DrawPen extends PaintFunction{
     draw(x,y){ 
         contextDraft.lineTo(x+1,y+1);
         contextDraft.moveTo(x+1,y+1);
+        contextReal.strokeStyle = color.primary;
         contextDraft.stroke();
     }
     onMouseDown(mouse,e){
-
         contextDraft.strokeStyle = color.primary;
+        contextReal.strokeStyle = color.primary;
         contextDraft.lineWidth = size.x * 0.1;
         contextDraft.lineJoin = contextDraft.lineCap = 'round';
         contextDraft.shadowBlur = 0;
