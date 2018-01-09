@@ -48,29 +48,36 @@ currentFunction = new PaintFunction;
 //call draw-functions to "currentFunction" when user click the button 
 
 $('#pen').click(function(){
+    reset();
     currentFunction = new DrawPen(contextReal,contextDraft);
     console.log(currentFunction);
 });
 $('#brush').click(function(){
+    reset();
     currentFunction = new DrawBrush(contextReal,contextDraft);
     console.log(currentFunction);
 });
 $('#smooth').click(function(){
+    reset();
     currentFunction = new DrawSmooth(contextReal,contextDraft);
     console.log(currentFunction);
 });
 $('#rect').click(function(){
+    reset();
      currentFunction = new DrawingRectangle(contextReal,contextDraft);
      console.log(currentFunction);
 });
 $('#circle').click(function(){
+    reset();
     currentFunction = new DrawingCircle(contextReal,contextDraft);
     console.log(currentFunction);
 });
 $('#line').click(function(){
+    reset();
     currentFunction = new DrawLine;
 });
 $('#neon').click(function(){
+    reset();
     currentFunction = new DrawNeon(contextReal,contextDraft);
     console.log(currentFunction);
 });
@@ -80,6 +87,7 @@ $('#spray').click(function(){
     console.log(currentFunction);
 });
 $('#eraser').click(function(){
+    reset();
     currentFunction = new Eraser(contextReal);
     console.log(currentFunction);
 });
