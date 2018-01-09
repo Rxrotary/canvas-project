@@ -74,6 +74,11 @@ $('#neon').click(function(){
     currentFunction = new DrawNeon(contextReal,contextDraft);
     console.log(currentFunction);
 });
+$('#spray').click(function(){
+    reset();
+    currentFunction = new DrawSpray(contextReal,contextDraft);
+    console.log(currentFunction);
+});
 $('#eraser').click(function(){
     currentFunction = new Eraser(contextReal);
     console.log(currentFunction);
@@ -140,4 +145,14 @@ $('#canvasReal').mouseenter(function(e){
     currentFunction.onMouseEnter(mouse,e);
 });
 
-
+function reset(){
+    size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
+    color.primary = $('#color-label1').css('background-color');
+    color.secondary = $('#color-label2').css('background-color');
+    shadow = {color: '#000', blur:'0'};  
+    contextDraft.lineJoin = contextDraft.lineCap = 'round';
+    contextDraft.shadowBlur = shadow.blur;
+    contextDraft.shadowColor = shadow.color;
+    contextDraft.fillStyle = color.secondary;
+    contextDraft.strokeStyle = color.primary;
+}
