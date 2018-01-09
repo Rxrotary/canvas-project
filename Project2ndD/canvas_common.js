@@ -74,7 +74,7 @@ $('#circle').click(function(){
 });
 $('#line').click(function(){
     reset();
-    currentFunction = new DrawLine;
+    currentFunction = new DrawLine(contextReal,contextDraft);
 });
 $('#neon').click(function(){
     reset();
