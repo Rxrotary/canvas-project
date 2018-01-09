@@ -5,16 +5,18 @@ let contextReal = canvasReal.getContext('2d');
 let currentFunction;
 let dragging = false;
 let size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
-let color = {primary: '#ff0000', secondary: '#fff', data:{0:255,1:0,2:0,3:255}};
+let color = {primary: '#ff0000', secondary: '#fff', dataPrim:{0:255,1:0,2:0,3:255}, dataSec:{0:255,1:0,2:0,3:255}};
 let shadow = {color: '#000', blur:'0'};
-
 
 
 //Color setting 
 $('#color-picker1').click(function(){
    color.primary = $('#color-label1').css('background-color');
-})
-
+   
+});
+$('#color-picker2').click(function(){
+    color.secondary = $('#color-label2').css('background-color')
+});
 
 
 
@@ -152,6 +154,7 @@ $('#canvasDraft').mouseenter(function(e){
 });
 
 
+//Rest Tool Setting Function
 function reset(){
     size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
     color.primary = $('#color-label1').css('background-color');

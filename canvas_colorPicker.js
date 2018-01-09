@@ -86,7 +86,7 @@ function changeColor(e,label) {
   x = e.offsetX;
   y = e.offsetY;
   var imageData = ctx1_prim.getImageData(x, y, 1, 1).data;
-  color.data = imageData;
+  color.dataPrim = imageData;
   rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
   label.style.backgroundColor = rgbaColor;
 }

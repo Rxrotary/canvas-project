@@ -84,7 +84,7 @@ function fillGradientSec() {                                     //Fill Gradient
     x_sec = e.offsetX;
     y_sec = e.offsetY;
     var imageDataSec = ctx1_sec.getImageData(x_sec, y_sec, 1, 1).data;
-    color.data = imageDataSec;
+    color.dataSec = imageDataSec;
     rgbaColor_sec = 'rgba(' + imageDataSec[0] + ',' + imageDataSec[1] + ',' + imageDataSec[2] + ',1)';
     label.style.backgroundColor = rgbaColor_sec;
   }
