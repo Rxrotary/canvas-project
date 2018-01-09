@@ -9,9 +9,9 @@ class DrawSpray extends PaintFunction{
         this.contextDraft.lineWidth = size.x*0.2;
         this.contextDraft.lineJoin = this.contextDraft.lineCap = 'round';
         this.points.push(mouse);
-        this.contextDraft.strokeStyle= color.primary;
+        this.contextDraft.strokeStyle= color.current;
         this.contextDraft.shadowBlur = size.x*0.6;
-        this.contextDraft.shadowColor = color.primary;
+        this.contextDraft.shadowColor = color.current;
     }
     onDragging(mouse,e){
         this.points.push(mouse);

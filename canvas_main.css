@@ -61,13 +61,7 @@
   background: transparent;
   z-index: 11;
 }
-#canvasColor{
-  position: absolute;  
-  left: 300px;
-  box-shadow: 5px 5px 5px grey;
-  background: transparent;
-  z-index: 9;
-}
+
 
 
 

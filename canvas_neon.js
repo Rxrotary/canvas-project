@@ -11,7 +11,7 @@ class DrawNeon extends PaintFunction{
         this.points.push(mouse);
         this.contextDraft.strokeStyle= '#fff';
         this.contextDraft.shadowBlur =  size.x*0.6;
-        this.contextDraft.shadowColor = color.primary;
+        this.contextDraft.shadowColor = color.current;
     }
     onDragging(mouse,e){
         

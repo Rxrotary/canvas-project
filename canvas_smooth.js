@@ -25,7 +25,7 @@ class DrawSmooth extends PaintFunction {
     for (var i = 0; i < dist; i += 5) {
       var x = this.lastPoint.x + (Math.sin(angle) * i);
       var y = this.lastPoint.y + (Math.cos(angle) * i);
-      var colorData = color.data;
+      var colorData = color.currentData;
       console.log(colorData)
       var colorStop0 = 'rgba(' + colorData[0] + ',' + colorData[1] + ',' + colorData[2] + ',1)';
       var colorStop1 = 'rgba(' + colorData[0] + ',' + colorData[1] + ',' + colorData[2] + ',0.5)';
