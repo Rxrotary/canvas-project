@@ -12,7 +12,10 @@ let shadow = {color: '#000', blur:'0'};
 //Color setting 
 $('#color-picker').click(function(){
    color.primary = $('#color-label').css('background-color');
-})
+});
+$('#color-picker2').click(function(){
+    color.secondary = $('#color-label2').css('background-color')
+});
 
 
 
