@@ -33,20 +33,26 @@
     </div>
 
     <!-- Color Picker -->
-    <div class='color'>
-        <div class="color-front">
-            <label for="color-input" id="color-label" style="background-color: red"></label>
-            <input type="checkbox" id="color-input" checked></input>
+        <div class='color'>
+            
+            <div class="color-prim">
+                <label for="color-input1" id="color-label1" style="background-color: red"></label>
+                <input type="checkbox" id="color-input1"></input>
+                <div id="color-picker1">
+                    <canvas id="color-block1" height="150" width="150"></canvas>
+                    <canvas id="color-strip1" height="150" width="30"></canvas>
+                </div>
+            </div>
 
-            <div id="color-picker">
-                <canvas id="color-block" height="150" width="150"></canvas>
-                <canvas id="color-strip" height="150" width="30"></canvas>
+            <div class="color-sec">
+                    <label for="color-input2" id="color-label2" style="background-color: red"></label>
+                    <input type="checkbox" id="color-input2"></input>   
+                    <div id="color-picker2">
+                        <canvas id="color-block2" height="150" width="150"></canvas>
+                        <canvas id="color-strip2" height="150" width="30"></canvas>
+                    </div>
             </div>
         </div>
-        <div class="color-back">
-
-        </div>
-    </div>
 
 
     <!-- Setting -->
@@ -58,8 +64,10 @@
 
 
 
-    <canvas id='canvasDraft' width='800px' height='800px'></canvas>
-    <canvas id='canvasReal' width='800px' height="800px"></canvas>
+     <div class="canvasContainer">
+         <canvas id='canvasDraft' width='700px' height='700px'></canvas>
+         <canvas id='canvasReal' width='700px' height='700px'></canvas>
+      </div>
 
 
 
