@@ -21,10 +21,14 @@ $('#color-picker2').click(function(){
     color.currentData = color.dataSec;
 });
 $('#color-label1').click(function(){
+    $('#color-label1').css('box-shadow','3px 3px 1px 1px #333');
+    $('#color-label2').css('box-shadow','none');
     color.current = color.primary;
     color.currentData = color.dataPrim; 
 });
 $('#color-label2').click(function(){
+    $('#color-label2').css('box-shadow','3px 3px 1px 1px #333');
+    $('#color-label1').css('box-shadow','none');
     color.current = color.secondary;
     color.currentData = color.dataSec;
 });
