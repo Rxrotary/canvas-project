@@ -82,7 +82,7 @@ $('#clear').click(() => {
     clearAll();
 });
 $('#save').click(() => {
-    exportCanvasAsPNG();
+    exportCanvasAsPNG(canvasReal);
 });
 
 
