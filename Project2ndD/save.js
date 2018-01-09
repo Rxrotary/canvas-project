@@ -7,7 +7,7 @@ function exportCanvasAsPNG(canvasReal) {
     var imgURL = canvasElement.toDataURL(MIME_TYPE);
 
     var dlLink = document.createElement('a');
-    dlLink.download = "canvas";
+    dlLink.download = '';
     dlLink.href = imgURL;
     dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(':');
 
