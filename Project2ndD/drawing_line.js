@@ -12,10 +12,10 @@ class DrawLine extends PaintFunction{
     // }
 
     onMouseDown(mouse,e){
-        this.contextDraft.strokeStyle = color.primary;
+        this.contextDraft.strokeStyle = color.current;
         this.contextDraft.lineWidth = size.x * 0.1;
         this.contextDraft.lineJoin = contextDraft.lineCap = 'round';
-        this.contextReal.strokeStyle = color.primary;
+        this.contextReal.strokeStyle = color.current;
         this.contextReal.lineWidth = size.x * 0.1;
         this.contextReal.lineJoin = contextDraft.lineCap = 'round';
         this.contextReal.shadowBlur = 0;
