@@ -13,7 +13,7 @@ class DrawingCircle extends PaintFunction {
     }
 
     onDragging(mouse, event) {
-        var r = (mouse.x - this.orig.x);
+        var r = Math.sqrt((mouse.x - this.orig.x)**2 + (mouse.y - this.orig.y)**2);
         this.contextDraft.strokeStyle = color.current;
         this.contextReal.lineWidth = size.x * 0.1;
         this.contextDraft.beginPath();
@@ -24,7 +24,7 @@ class DrawingCircle extends PaintFunction {
 
     onMouseMove() { }
     onMouseUp(mouse) {
-        var r = (mouse.x - this.orig.x);
+        var r = Math.sqrt((mouse.x - this.orig.x)**2 + (mouse.y - this.orig.y)**2);
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextReal.arc(this.orig.x, this.orig.y, r, 0, Math.PI * 2, true);
         this.contextReal.stroke();
