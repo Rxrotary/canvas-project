@@ -13,12 +13,15 @@ let shadow = {color: '#000', blur:'0'};
 $('#color-picker1').click(function(){
    color.primary = $('#color-label1').css('background-color');
    color.current = color.primary;
-   color.currentData = color.dataPrim;   
+   color.currentData = color.dataPrim; 
+   setTimeout(function(){document.getElementById("color-input1").checked = false;},2000);
+   ;  
 });
 $('#color-picker2').click(function(){
     color.secondary = $('#color-label2').css('background-color')
     color.current = color.secondary;
     color.currentData = color.dataSec;
+    setTimeout(function(){document.getElementById("color-input2").checked = false;},2000);
 });
 $('#color-label1').click(function(){
     $('#color-label1').css('box-shadow','3px 3px 1px 1px #333');
