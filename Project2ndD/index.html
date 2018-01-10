@@ -11,6 +11,8 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
     <title>Paint Tool Online</title>
 </head>
 
@@ -18,22 +20,31 @@
 <body>
     <div id='app'>
         <div id="heading">
-            <h1>Awesome Paint Tool</h1>
+            <h1>Awesome Drawing Tool</h1>
         </div>
         <!-- Tool Box -->
         <div class='toolContainer'>
-            <button class='tool_item' id='pen'>Pen</button>
-            <button class='tool_item' id='line'>Line</button>
-            <button class='tool_item' id='rect'>Rectangle</button>
-            <button class='tool_item' id='circle'>Circle</button>
-            <button class='tool_item' id='smooth'>Smooth</button>
-            <button class='tool_item' id='spray'>Spray</button>
-            <button class='tool_item' id='neon'>Neon</button>
-            <button class='tool_item' id='brush'>Brush</button>
-            <button class='tool_item' id='eraser'>Eraser</button>
-            <button class='tool_item' id='clear'>Clear</button>
-            <button class='tool_item' id='save'>Save</button>
-
+            <div>
+            <button class='tool_item btn-info fa fa-pencil col-lg-6 col-sm-6' aria-hidden="true" id='pen'></button>
+            <button class='tool_item btn-info fa fa-long-arrow-right col-lg-6 col-sm-6' aria-hidden="true" id='line'></button>
+            </div>
+            <div>
+            <button class='tool_item btn-info fa fa-square col-lg-6 col-sm-6' aria-hidden="true" id='rect'></button>
+            <button class='tool_item btn-info fa fa-circle-thin col-lg-6 col-sm-6' aria-hidden="true" id='circle'></button>
+            </div>
+            <div>
+            <button class='tool_item btn-primary fa fa-hand-paper-o col-lg-6 col-sm-6' aria-hidden="true" id='smooth'></button>
+            <button class='tool_item btn-primary fa fa-fire-extinguisher col-lg-6 col-sm-6' aria-hidden="true" id='spray'></button>
+            </div>
+            <div>
+            <button class='tool_item btn-primary fa fa-snowflake-o col-lg-6 col-sm-6' aria-hidden="true" id='neon'></button>
+            <button class='tool_item btn-primary fa fa-paint-brush col-lg-6 col-sm-6' aria-hidden="true" id='brush'></button>
+            </div>
+            <div>
+            <button class='tool_item btn-warning fa fa-eraser col-lg-6 col-sm-6' aria-hidden="true" id='eraser'></button>
+            <button class='tool_item btn-danger fa fa-television col-lg-6 col-sm-6' aria-hidden="true" id='clear'></button>
+            </div>
+            <button class='tool_item btn-success fa fa-folder-open-o col-lg-6 col-sm-6' aria-hidden="true" id='save'></button>
         </div>
 
         <!-- Color Picker -->
@@ -59,10 +70,12 @@
         </div>
 
 
-        <!-- Setting -->
-        <div class="setting">
-            <input type="range" id="size">Size
-        </div>
+          <!-- Setting -->
+          <div class="setting">
+                <div class='rangeContainer'>
+                    <input type="range" id="size">Size
+                </div>
+            </div>
 
 
         <div class="canvasContainer">

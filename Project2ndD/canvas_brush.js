@@ -16,7 +16,7 @@ class DrawBrush extends PaintFunction {
     }
     onDragging(mouse,e) {
         var img = new Image();
-        img.src = 'http://www.tricedesigns.com/wp-content/uploads/2012/01/brush2.png';
+        img.src = './brush2.png';
         
         this.currentPoint = mouse;
         var dist = this.distanceBetween(this.lastPoint,this.currentPoint);

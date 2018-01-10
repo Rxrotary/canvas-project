@@ -5,30 +5,37 @@ let contextReal = canvasReal.getContext('2d');
 let currentFunction;
 let dragging = false;
 let size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
-let color = {primary: '#ff0000', secondary: '#fff',current:'#ff0000', dataPrim:{0:255,1:0,2:0,3:255}, dataSec:{0:255,1:0,2:0,3:255}, currentData:{0:255,1:0,2:0,3:255}};
+let color = {primary: '#ff0000', secondary: '#fff',current:'#ff0000', dataPrim:{0:255,1:0,2:0,3:255}, dataSec:{0:255,1:0,2:0,3:255}, currentData:{0:255,1:0,2:0,3:255}} ;
 let shadow = {color: '#000', blur:'0'};
 
 
 //Color setting 
 $('#color-picker1').click(function(){
-   color.primary = $('#color-label1').css('background-color');
-   color.current = color.primary;
-   color.currentData = color.dataPrim;   
-});
-$('#color-picker2').click(function(){
-    color.secondary = $('#color-label2').css('background-color')
-    color.current = color.secondary;
-    color.currentData = color.dataSec;
-});
-$('#color-label1').click(function(){
+    color.primary = $('#color-label1').css('background-color');
     color.current = color.primary;
     color.currentData = color.dataPrim; 
-});
-$('#color-label2').click(function(){
-    color.current = color.secondary;
-    color.currentData = color.dataSec;
-});
-
+    setTimeout(function(){document.getElementById("color-input1").checked = false;},2000);
+    ;  
+ });
+ $('#color-picker2').click(function(){
+     color.secondary = $('#color-label2').css('background-color')
+     color.current = color.secondary;
+     color.currentData = color.dataSec;
+     setTimeout(function(){document.getElementById("color-input2").checked = false;},2000);
+ });
+ $('#color-label1').click(function(){
+     $('#color-label1').css('box-shadow','3px 3px 1px 1px #333');
+     $('#color-label2').css('box-shadow','none');
+     color.current = color.primary;
+     color.currentData = color.dataPrim; 
+ });
+ $('#color-label2').click(function(){
+     $('#color-label2').css('box-shadow','3px 3px 1px 1px #333');
+     $('#color-label1').css('box-shadow','none');
+     color.current = color.secondary;
+     color.currentData = color.dataSec;
+ });
+ 
 
 
 
@@ -74,7 +81,17 @@ $('#brush').click(function(){
 });
 $('#smooth').click(function(){
     reset();
-    currentFunction = new DrawSmooth(contextDraft);
+    currentFunction = new DrawSmooth(contextReal,contextDraft);
+    console.log(currentFunction);
+});
+$('#neon').click(function(){
+    reset();
+    currentFunction = new DrawNeon(contextReal,contextDraft);
+    console.log(currentFunction);
+});
+$('#spray').click(function(){
+    reset();
+    currentFunction = new DrawSpray(contextReal,contextDraft);
     console.log(currentFunction);
 });
 $('#rect').click(function(){
@@ -90,15 +107,6 @@ $('#circle').click(function(){
 $('#line').click(function(){
     reset();
     currentFunction = new DrawLine(contextReal,contextDraft);
-});
-$('#neon').click(function(){
-    reset();
-    currentFunction = new DrawNeon(contextReal,contextDraft);
-    console.log(currentFunction);
-});
-$('#spray').click(function(){
-    reset();
-    currentFunction = new DrawSpray(contextReal,contextDraft);
     console.log(currentFunction);
 });
 $('#eraser').click(function(){
@@ -110,36 +118,33 @@ $('#clear').click(() => {
     clearAll();
 });
 $('#save').click(() => {
-    exportCanvasAsPNG(canvasReal);
+    exportCanvasAsPNG();
 });
-
 
 
 //Apply currentFunction to Canvas
 
-$('#canvasReal').mousedown(function(e){
+$('#canvasDraft').mousedown(function(e){
+    contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
     let mouse = {
         x: e.pageX - this.offsetLeft,      //Allen: object "mouse" store x-coordinate & y-coordinate of mouse event
         y: e.pageY - this.offsetTop        //instead of [mouseX,mouseY]
     };                                     //I try keep using 'object' to store data, make it more consist.
     size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
-    //console.log(mouse.x,mouse.y);
-
     currentFunction.onMouseDown(mouse,e);
     dragging = true;
 });
-$('#canvasReal').mousemove(function(e){
+$('#canvasDraft').mousemove(function(e){
     let mouse = {
         x: e.pageX - this.offsetLeft,
         y: e.pageY - this.offsetTop
-    };
-    
+    };  
     if (dragging){
      currentFunction.onDragging(mouse,e);
     }else{currentFunction.onMouseMove(mouse,e);}
 });
 
-$('#canvasReal').mouseup(function(e){
+$('#canvasDraft').mouseup(function(e){
     dragging = false;
     let mouse = {
         x: e.pageX - this.offsetLeft,
@@ -150,7 +155,7 @@ $('#canvasReal').mouseup(function(e){
     contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
 });
 
-$('#canvasReal').mouseleave(function(e){
+$('#canvasDraft').mouseleave(function(e){
     dragging = false;
     let mouse =  {
         x: e.pageX - this.offsetLeft,
@@ -160,7 +165,7 @@ $('#canvasReal').mouseleave(function(e){
     contextReal.drawImage(canvasDraft,0,0);
     contextDraft.clearRect(0, 0, contextDraft.canvas.width, contextDraft.canvas.height);
 });
-$('#canvasReal').mouseenter(function(e){
+$('#canvasDraft').mouseenter(function(e){
     let mouse = {
         x: e.pageX - this.offsetLeft,
         y: e.pageY - this.offsetTop
@@ -168,6 +173,8 @@ $('#canvasReal').mouseenter(function(e){
     currentFunction.onMouseEnter(mouse,e);
 });
 
+
+//Rest Tool Setting Function
 function reset(){
     size = {x:document.getElementById('size').value,y:document.getElementById('size').value};
     color.primary = $('#color-label1').css('background-color');
